@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Foreach
@@ -32,6 +25,7 @@ namespace Foreach
             foreach (int x in notlar)
             {
                 listBox2.Items.Add(x);
+               
             }
         }
 
@@ -55,6 +49,50 @@ namespace Foreach
             listBox1.Items.Clear();
             listBox2.Items.Clear();
             listBox3.Items.Clear();
+        }
+        // Dizideki elemanlar, dört sayısına tam bölünenler ve bu sayıların ayrı ayrı toplamları
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int toplam = 0;
+            int sayi = 0;
+            int adet = 0;
+
+            int[] dizi = { 12, 13, 14, 16, 22, 26, 28, 30, 44, 80 };
+            foreach (int d in dizi)
+            {
+                listBox4.Items.Add(d);
+                toplam = toplam + d;
+            }
+            label7.Text = toplam.ToString();
+
+            foreach (int d in dizi)
+            {
+                if (d % 4 == 0)
+                {
+                    listBox5.Items.Add(d);
+                    sayi = sayi + d;
+                    adet++;
+                }
+                label5.Text = sayi.ToString();
+                label6.Text = adet.ToString();
+            }
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string[] kategoriler = { "Bilgisayar", "Monitör", "Telefon"};
+            string[] urunler = { "Ürün 1", "Ürün 2", "Ürün 3" };
+
+            foreach (var u in urunler)
+            {
+                listBox6.Items.Add(u);
+                foreach (var k in kategoriler)
+                {
+                    listBox7.Items.Add(k);
+                }
+            }
+
         }
     }
 }
